@@ -21,7 +21,8 @@
   "homepage": "https://github.com/Unlife86/react-app#readme",
   "dependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "snapkite-stream-client": "^1.0.3"
   },
   "devDependencies": {
     "babel": "^6.5.2",
