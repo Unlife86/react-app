@@ -4,18 +4,27 @@ var ReactDOM = require('react-dom');
 var ReactClass = React.createClass({
     getInitialState: function () {
         return {
-            isHidden: false
+            isHeaderHidden: false,
+            title: 'Stateful React Component'
         };
     },
 
-    render: function () {
+    handleClick: function () {
+        this.setState({
+            isHeaderHidden: !this.state.isHeaderHidden
+        });
+    },
 
-        if (this.state.isHidden) {
-            return null;
-        }
-        
-        return React.createElement('h1', { className: 'header' }, 'React Component');
+    render: function () {
+        var headerElement = React.createElement('h1', {className: 'header', key: 'header'}, this.state.title);
+        var buttonElement = React.createElement('button', {className: 'btn btn-default', onClick: this.handleClick, key: 'button'}, 'Toggle header');
+
+        if (this.state.isHeaderHidden) {
+            return React.createElement('div', null, [buttonElement]);
+        }        
+        return React.createElement('div', null, [buttonElement, headerElement]);
     }
 });
+
 ReactDOM.render(React.createElement(ReactClass), document.getElementById('react-application'));
 
